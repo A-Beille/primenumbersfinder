@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Nombres premiers</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="a">
+    <h1>"Détecteur" de nombres premiers</h1>
+    <h2>Ce système permet de trouver tous les nombres premiers jusqu'à 5000 maximum presque instantanément. Pour effectuer cela, il utilise le crible d'Ératosthène, procédé visant à supprimer tous les nombres multiples de 2, 3, 5 et 7. Ce procédé donnera ainsi tous les nombres premiers.</h2>
+</div>
+    <ul id="body"></ul>
+    <form id="form" action="">
+        <input type="number" max="5000" id="vlmax">
+    <button style="cursor: pointer;" title="Exécuter">Exécuter</button>
+</form>
+</body>
+<script>
+    let form = document.getElementById("form")
+    form.addEventListener("submit",function determinepn(max){
+        max.preventDefault()
+        let maxvalue = document.getElementById("vlmax").value
+        console.log(maxvalue)
+        let array = []
+        var i,j,sv=[false,false];
+        for (i=2; i<=maxvalue; i++) sv[i]=i;
+        for (i=2; i*i<=maxvalue; i++)
+          if (sv[i])
+            for (j=i+i; j<=maxvalue; j+=i) sv[j]=false;
+      sv.forEach(s=>{
+        if(s !== false) array.push(s)
+      })
+let callback = document.createElement('h3')
+callback.id = "callback"
+callback.textContent = array
+let copy = document.createElement('button')
+copy.id = "copybutton"
+copy.textContent = `Copier`
+copy.title = "Copier le résultat"
+function outFunc() {
+  var copy = document.getElementById("copybutton");
+  copy.textContent = "Copier";
+  copy.title = "Copier le résultat";
+}
+function onClick(){
+    var copyText = document.getElementById("callback");
+    navigator.clipboard.writeText(copyText.textContent);
+    var copy = document.getElementById("copybutton");
+  copy.textContent = "Copié !";
+  copy.title = "Résultat copié !";
+}
+copy.addEventListener("click",onClick, false)
+copy.addEventListener("mouseleave",outFunc, false)
+let div = document.getElementById("body")
+div.childNodes.forEach(child=>{
+    div.removeChild(child)
+})
+div.childNodes.forEach(child=>{
+    div.removeChild(child)
+})
+div.appendChild(callback)
+div.appendChild(copy)
+    })
+</script>
