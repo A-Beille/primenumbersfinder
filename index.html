@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
     <title>Nombres premiers</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <noscript>
+        <div class="unable">
+            <h3>Cette page ne peut pas fonctionner sans JavaScript. Or, ce dernier est désactivé. Veuillez le réactiver pour permettre au site de fonctionner.</h3>
+        </div>
+    </noscript>
     <div class="a">
     <h1>"Détecteur" de nombres premiers</h1>
-    <h2>Ce système permet de trouver tous les nombres premiers jusqu'à 5000 maximum presque instantanément. Pour effectuer cela, il utilise le crible d'Ératosthène, procédé visant à supprimer tous les nombres multiples de 2, 3, 5 et 7. Ce procédé donnera ainsi tous les nombres premiers.</h2>
+    <h2>Ce système permet de trouver tous les nombres premiers jusqu'à 1 000 000 maximum presque instantanément. Pour effectuer cela, il utilise le crible d'Ératosthène, procédé visant à supprimer tous les nombres multiples de nombres eux-mêmes premiers (donc supprimer les multiples de 2, 3, 5, 7, 11 etc...). Ce procédé donnera ainsi tous les nombres premiers.</h2>
 </div>
     <ul id="body"></ul>
     <form id="form" action="">
-        <input type="number" max="5000" id="vlmax">
+        <input type="number" min="2" max="1000000" id="vlmax">
     <button style="cursor: pointer;" title="Exécuter">Exécuter</button>
 </form>
 </body>

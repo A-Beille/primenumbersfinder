@@ -36,3 +36,8 @@ transition: 100ms;
 div.a{
     text-align: center;
 }
+div.unable{
+    text-align: center;
+    background-color: rgb(253, 76, 76);
+display:flow-root;
+}
